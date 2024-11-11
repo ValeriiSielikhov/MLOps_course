@@ -12,11 +12,8 @@ phases:
         commands:
             - echo "Running on $MY_AWS_REGION"
             - echo "Print Environment Variables"
-            - printenv
             - echo "Start the installation process"
             - echo "Installation Process Completed"
-            - echo "Hey welcome to AWS $name"
-            - echo "My code build id $CODEBUILD_BUILD_ID"
     pre_build:
         commands: 
             - echo "This is the start of Pre-Build phase"
@@ -26,14 +23,10 @@ phases:
             - echo "we are currently on build phase"
             - echo "Build Activity is completed"
             - echo "Run Basic check whether Website is ready for use"
-            - grep -Fq "AWS Certified DevOps Engineer" CI-CD-DEMO/index.html
+            - grep -Fq "AWS Certified DevOps Engineer" index.html
             - echo "Test was successful"
             - echo "proceed with next steps"
     post_build:
         commands:
             - echo "We are currently on post_build phase"
-            - echo "post_build phase activity is completed. Moving next to Artifacts"
-
-artifacts:
-    files:
-    - '**/*'
+            - echo "post_build phase activity is completed. Moving to Artifacts Phase"
